@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 33, 33, 33;
+  --background-rgb: 248, 230, 160;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #86C5FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2E5AA7;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(15px) rotate(-5deg); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+@keyframes pawFloat1 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.08; }
+  25% { transform: translate(15px, -25px) rotate(15deg); opacity: 0.15; }
+  50% { transform: translate(-10px, -40px) rotate(-10deg); opacity: 0.08; }
+  75% { transform: translate(20px, -15px) rotate(20deg); opacity: 0.12; }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 0.08; }
+}
+
+@keyframes pawFloat2 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.06; }
+  33% { transform: translate(-20px, -30px) rotate(-15deg); opacity: 0.12; }
+  66% { transform: translate(15px, -20px) rotate(10deg); opacity: 0.08; }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 0.06; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-paw-float-1 {
+  animation: pawFloat1 10s ease-in-out infinite;
+}
+
+.animate-paw-float-2 {
+  animation: pawFloat2 12s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Decorative blob shapes */
+.blob-pink {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.blob-primary {
+  background: linear-gradient(135deg, #FFA62B, #ffbd5c);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.blob-secondary {
+  background: linear-gradient(135deg, #86C5FF, #a8d5ff);
+  border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
+}
+
+.blob-accent {
+  background: linear-gradient(135deg, #2E5AA7, #4a7fd4);
+  border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+}
+
+.blob-teal {
+  background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+  border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+}
+
+@keyframes blobMorph {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 37% 63% / 52% 64% 36% 48%; }
+  50% { border-radius: 45% 55% 62% 38% / 70% 35% 65% 30%; }
+  75% { border-radius: 63% 37% 45% 55% / 38% 58% 42% 62%; }
+}
+
+.blob-morph {
+  animation: blobMorph 12s ease-in-out infinite;
+}
+
+/* Hero parallax overlay */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+/* Section transitions */
+.section-appear {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-appear.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SCRAPBOOK DESIGN SYSTEM ===== */
+
+/* Paper texture background */
+.scrapbook-bg {
+  background-color: #fef9e7;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(134, 197, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(248, 230, 160, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(46, 90, 167, 0.05) 0%, transparent 50%);
+}
+
+/* Polaroid photo frame */
+.polaroid {
+  background: white;
+  padding: 10px 10px 40px 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.polaroid-sm {
+  padding: 6px 6px 28px 6px;
+}
+
+/* Washi tape decorations */
+.washi-tape {
+  position: absolute;
+  width: 120px;
+  height: 28px;
+  opacity: 0.85;
+  z-index: 20;
+}
+
+.washi-blue {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(134, 197, 255, 0.7),
+    rgba(134, 197, 255, 0.7) 4px,
+    rgba(134, 197, 255, 0.4) 4px,
+    rgba(134, 197, 255, 0.4) 8px
+  );
+}
+
+.washi-yellow {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(248, 230, 160, 0.8),
+    rgba(248, 230, 160, 0.8) 4px,
+    rgba(248, 230, 160, 0.5) 4px,
+    rgba(248, 230, 160, 0.5) 8px
+  );
+}
+
+.washi-accent {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(46, 90, 167, 0.3),
+    rgba(46, 90, 167, 0.3) 4px,
+    rgba(46, 90, 167, 0.15) 4px,
+    rgba(46, 90, 167, 0.15) 8px
+  );
+}
+
+/* Torn paper edge effect */
+.torn-edge-bottom {
+  position: relative;
+}
+
+.torn-edge-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: inherit;
+  clip-path: polygon(
+    0% 0%, 3% 60%, 6% 20%, 9% 70%, 12% 10%, 15% 55%, 18% 25%, 21% 65%,
+    24% 15%, 27% 60%, 30% 20%, 33% 55%, 36% 10%, 39% 70%, 42% 20%, 45% 60%,
+    48% 15%, 51% 65%, 54% 25%, 57% 55%, 60% 10%, 63% 70%, 66% 20%, 69% 60%,
+    72% 15%, 75% 55%, 78% 25%, 81% 65%, 84% 10%, 87% 70%, 90% 20%, 93% 60%,
+    96% 15%, 100% 50%, 100% 0%
+  );
+  z-index: 10;
+}
+
+.torn-edge-top {
+  position: relative;
+}
+
+.torn-edge-top::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: inherit;
+  clip-path: polygon(
+    0% 100%, 0% 50%, 3% 90%, 6% 40%, 9% 80%, 12% 35%, 15% 85%, 18% 45%,
+    21% 80%, 24% 35%, 27% 90%, 30% 40%, 33% 85%, 36% 30%, 39% 80%, 42% 45%,
+    45% 85%, 48% 35%, 51% 90%, 54% 40%, 57% 80%, 60% 35%, 63% 85%, 66% 45%,
+    69% 80%, 72% 30%, 75% 90%, 78% 40%, 81% 85%, 84% 35%, 87% 80%, 90% 45%,
+    93% 85%, 96% 35%, 100% 80%, 100% 100%
+  );
+  z-index: 10;
+}
+
+/* Pin/pushpin decoration */
+.pushpin::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #ff6b6b, #cc3333);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  z-index: 30;
+}
+
+/* Notebook lines */
+.notebook-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(46, 90, 167, 0.1) 27px,
+    rgba(46, 90, 167, 0.1) 28px
+  );
+  background-position: 0 12px;
+}
+
+/* Doodle circle */
+@keyframes doodleDraw {
+  from { stroke-dashoffset: 300; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Stamp effect */
+.stamp {
+  border: 3px dashed;
+  padding: 8px 16px;
+  transform: rotate(-3deg);
+  font-family: var(--font-caveat), cursive;
+  font-weight: 700;
+}
+
+/* Sticker effect */
+.sticker {
+  filter: drop-shadow(2px 3px 2px rgba(0,0,0,0.15));
+}
+
+/* Tape rotation variants */
+.tape-tilt-left { transform: rotate(-8deg); }
+.tape-tilt-right { transform: rotate(8deg); }
+.tape-tilt-slight-left { transform: rotate(-3deg); }
+.tape-tilt-slight-right { transform: rotate(3deg); }
