@@ -22,7 +22,7 @@ const translations = {
     about: {
       tag: 'NOSOTROS',
       title: 'Quienes Somos',
-      statsLabel: 'Animales rescatados',
+      statsLabel: 'animales abandonados',
       p1: 'La Fundación HUELLITAS PERDIDAS tiene como misión generar oportunidades que involucren voluntades, creando un cambio cultural en Venezuela en beneficio de los animales que habitan en las calles. Aportamos herramientas que permitan garantizar su rehabilitación para luego encontrar un hogar lleno de respeto, amor y dignidad.',
       p2: 'Contamos con un espacio para albergar amigos peludos y nos enfocamos en apoyar refugios y hogares de paso que requieren ayuda constante. Un grupo interdisciplinario de personas aporta y se esfuerza por cambiar la realidad de los peludos de la calle.',
       p3: 'Nuestra visión es crear un mundo donde todos los animales accedan a una vida libre de sufrimiento y abandono, fomentando una cultura de compasión y responsabilidad.',
@@ -76,6 +76,26 @@ const translations = {
       p1: 'Cada animal que llega a nuestra fundación tiene una historia única. Desde rescates en las calles más difíciles hasta transformaciones increíbles llenas de amor y esperanza.',
       p2: 'En nuestro blog compartimos estas historias para que conozcas el impacto real de tu apoyo y cómo cada contribución transforma vidas.',
       cta: 'Blog',
+    },
+    whyAdoptRescue: {
+      adoptTag: '¿POR QUÉ ADOPTAR?',
+      adoptTitle: 'Adoptar cambia dos vidas',
+      adoptDesc: 'Cuando adoptas, le das una segunda oportunidad a un ser que ha sufrido el abandono. No solo cambias su vida — también transformas la tuya. Los animales adoptados lo saben, y te lo devuelven con amor incondicional.',
+      adoptReasons: [
+        { title: 'Saves a life', desc: 'Cada adopción libera un espacio en el refugio para rescatar otro animal.' },
+        { title: 'Love you earn', desc: 'Los animales rescatados crean vínculos especiales con quienes les dan una oportunidad.' },
+        { title: 'Fight abandonment', desc: 'Adoptar es el acto más poderoso contra el abandono y el maltrato animal.' },
+        { title: 'Find your match', desc: 'Hay un peludo esperándote — de todas las edades, tamaños y personalidades.' },
+      ],
+      rescueTag: '¿POR QUÉ RESCATAR?',
+      rescueTitle: 'Cada rescate importa',
+      rescueDesc: 'Un animal en la calle no está bien. Sufre de hambre, frío, enfermedades y miedo. Rescatar es un acto de valentía y compasión que puede literalmente salvar una vida. No necesitas ser experto — solo tener el corazón en el lugar correcto.',
+      rescueReasons: [
+        { title: 'They cannot ask for help', desc: 'Los animales dependen de nosotros. Un gesto tuyo puede ser su única salvación.' },
+        { title: 'Every life has value', desc: 'No importa el tamaño, la raza ni la edad. Todo ser merece vivir con dignidad.' },
+        { title: 'You are not alone', desc: 'Huellitas Perdidas te guía paso a paso en el proceso de rescate.' },
+        { title: 'The reward is real', desc: 'Verlos recuperarse y florecer es una de las experiencias más gratificantes de la vida.' },
+      ],
     },
     testimonials: {
       tag: 'TESTIMONIOS',
@@ -239,7 +259,7 @@ const translations = {
     about: {
       tag: 'ABOUT US',
       title: 'Who We Are',
-      statsLabel: 'Animals rescued',
+      statsLabel: 'abandoned animals',
       p1: 'The HUELLITAS PERDIDAS Foundation\'s mission is to create opportunities that involve goodwill, generating a cultural change in Venezuela for the benefit of animals living on the streets. We provide tools to guarantee their rehabilitation so they can find a home full of respect, love, and dignity.',
       p2: 'We have a space to shelter furry friends and focus on supporting shelters and foster homes that require constant help. An interdisciplinary group of people contributes and strives to change the reality of street animals.',
       p3: 'Our vision is to create a world where all animals can access a life free of suffering and abandonment, fostering a culture of compassion and responsibility.',
@@ -288,7 +308,7 @@ const translations = {
       error: 'There was an error. Please try again.',
     },
     blogPreview: {
-      title: 'Discover the stories of our rescues',
+      title: 'Discover stories from our rescues',
       subtitle: 'and the day-to-day life at the foundation',
       p1: 'Every animal that arrives at our foundation has a unique story. From rescues in the toughest streets to incredible transformations full of love and hope.',
       p2: 'On our blog we share these stories so you can see the real impact of your support and how every contribution transforms lives.',
@@ -400,6 +420,26 @@ const translations = {
             { title: 'Monitor behavior', desc: 'Watch for signs of trauma, fear, or aggression. Avoid punishment and maintain calm routines.' },
           ],
         },
+      ],
+    },
+    whyAdoptRescue: {
+      adoptTag: 'WHY ADOPT?',
+      adoptTitle: 'Adopting changes two lives',
+      adoptDesc: 'When you adopt, you give a second chance to a being who has suffered abandonment. You don\'t just change their life — you transform yours. Adopted animals know this, and they give it back to you with unconditional love.',
+      adoptReasons: [
+        { title: 'Saves a life', desc: 'Every adoption frees up shelter space to rescue another animal.' },
+        { title: 'Love you earn', desc: 'Rescued animals create special bonds with those who give them a chance.' },
+        { title: 'Fight abandonment', desc: 'Adopting is the most powerful act against animal abandonment and abuse.' },
+        { title: 'Find your match', desc: 'There is a furry friend waiting for you — all ages, sizes, and personalities.' },
+      ],
+      rescueTag: 'WHY RESCUE?',
+      rescueTitle: 'Every rescue matters',
+      rescueDesc: 'An animal on the street is not okay. They suffer from hunger, cold, disease, and fear. Rescuing is an act of courage and compassion that can literally save a life. You don\'t need to be an expert — just have your heart in the right place.',
+      rescueReasons: [
+        { title: 'They cannot ask for help', desc: 'Animals depend on us. A single gesture from you can be their only salvation.' },
+        { title: 'Every life has value', desc: 'Size, breed, and age don\'t matter. Every being deserves to live with dignity.' },
+        { title: 'You are not alone', desc: 'Huellitas Perdidas guides you step by step through the rescue process.' },
+        { title: 'The reward is real', desc: 'Watching them recover and thrive is one of the most rewarding experiences in life.' },
       ],
     },
     publishPet: {

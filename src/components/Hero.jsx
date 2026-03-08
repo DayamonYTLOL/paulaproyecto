@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Heart, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -33,7 +33,7 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1920&q=80')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1920&q=80')",
           y: bgY,
         }}
       />
@@ -60,19 +60,6 @@ export default function Hero() {
         className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         style={{ y: textY, opacity }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
-            <Heart className="w-4 h-4 text-cream-300 animate-wiggle" />
-            <span className="text-white/90 text-sm font-medium">
-              {t.hero.badge}
-            </span>
-          </div>
-        </motion.div>
-
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-handwritten font-bold text-white leading-tight mb-6"
           initial={{ opacity: 0, y: 40 }}
@@ -105,12 +92,6 @@ export default function Hero() {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary-400 hover:bg-secondary-500 text-white rounded-full text-lg font-semibold transition-all duration-300 shadow-xl shadow-secondary-500/30 hover:shadow-secondary-500/50 hover:-translate-y-1 hover:scale-105"
           >
             {t.hero.cta}
-          </Link>
-          <Link
-            href="/adopcion"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cream-300/20 hover:bg-cream-300/30 backdrop-blur-sm text-white border border-cream-200/40 rounded-full text-lg font-semibold transition-all duration-300 hover:-translate-y-1 hover:scale-105"
-          >
-            {t.hero.adoptNow}
           </Link>
         </motion.div>
       </motion.div>

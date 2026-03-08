@@ -2,9 +2,8 @@ import Hero from '@/components/Hero';
 import Nosotros from '@/components/Nosotros';
 import QueHacemos from '@/components/QueHacemos';
 import RescueGuide from '@/components/RescueGuide';
+import WhyAdoptRescue from '@/components/WhyAdoptRescue';
 import PublishPet from '@/components/PublishPet';
-import Noticias from '@/components/Noticias';
-import BlogPreview from '@/components/BlogPreview';
 import Testimonios from '@/components/Testimonios';
 import FAQ from '@/components/FAQ';
 import Contacto from '@/components/Contacto';
@@ -16,9 +15,8 @@ export default function Home() {
       <Nosotros />
       <QueHacemos />
       <RescueGuide />
+      <WhyAdoptRescue />
       <PublishPet />
-      <Noticias />
-      <BlogPreview />
       <Testimonios />
       <FAQ />
       <Contacto />
