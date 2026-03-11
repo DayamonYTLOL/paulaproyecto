@@ -22,7 +22,6 @@ export default function PublishPet() {
   });
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
-  const [uploading, setUploading] = useState(false);
   const [status, setStatus] = useState('idle');
   const [publications, setPublications] = useState([]);
   const [loadingPubs, setLoadingPubs] = useState(true);
@@ -46,7 +45,9 @@ export default function PublishPet() {
     if (file) {
       setImageFile(file);
       const reader = new FileReader();
-      reader.onloadend = () => setImagePreview(reader.result);
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
       reader.readAsDataURL(file);
     }
   };
@@ -63,25 +64,9 @@ export default function PublishPet() {
     try {
       let image_url = null;
 
-      // Upload image first if one is selected
-      if (imageFile) {
-        try {
-          setUploading(true);
-          const uploadForm = new FormData();
-          uploadForm.append('file', imageFile);
-          const uploadRes = await fetch('/api/upload', {
-            method: 'POST',
-            body: uploadForm,
-          });
-          if (uploadRes.ok) {
-            const uploadData = await uploadRes.json();
-            image_url = uploadData.url;
-          }
-        } catch {
-          // Upload failed - continue without image
-        } finally {
-          setUploading(false);
-        }
+      // Use base64 preview directly — no Storage bucket needed
+      if (imageFile && imagePreview) {
+        image_url = imagePreview;
       }
 
       const res = await fetch('/api/publications', {
@@ -278,13 +263,13 @@ export default function PublishPet() {
 
                 <motion.button
                   type="submit"
-                  disabled={status === 'loading' || uploading}
+                  disabled={status === 'loading'}
                   className="w-full py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
                   <PawPrint className="w-4 h-4" />
-                  {uploading ? t.publishPet.uploading : status === 'loading' ? t.publishPet.submitting : t.publishPet.submit}
+                  {status === 'loading' ? t.publishPet.submitting : t.publishPet.submit}
                 </motion.button>
                 {status === 'error' && (
                   <p className="text-red-500 text-sm text-center">{t.publishPet.error}</p>

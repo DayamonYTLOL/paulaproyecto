@@ -37,21 +37,6 @@ export default function Contacto() {
   return (
     <section id="contacto" ref={sectionRef} className="py-24 scrapbook-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="stamp text-secondary-600 border-secondary-400 text-lg inline-block mb-4">
-            {t.contact.tag}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-handwritten font-bold text-accent-600 mt-3 mb-4">
-            {t.contact.title}
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">{t.contact.subtitle}</p>
-        </motion.div>
-
         <div className="grid lg:grid-cols-5 gap-12">
           <motion.div
             className="lg:col-span-2 space-y-8"
@@ -95,7 +80,7 @@ export default function Contacto() {
             >
               <div className="washi-tape washi-yellow -top-3 left-8 tape-tilt-slight-right" />
               <div className="polaroid" style={{ transform: 'rotate(2deg)' }}>
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Contacto" className="w-full h-40 object-cover" />
+                <img src="/images/Imagen9.jpg" alt="Contacto" className="w-full h-40 object-cover" />
                 <p className="font-handwritten text-center text-gray-400 text-base mt-1">Escríbenos</p>
               </div>
             </motion.div>
