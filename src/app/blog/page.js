@@ -12,7 +12,7 @@ export default function BlogPage() {
     fetch('/api/blog')
       .then((res) => res.json())
       .then((data) => {
-        setPosts(data);
+        setPosts(Array.isArray(data) ? data : []);
         setLoading(false);
       })
       .catch(() => setLoading(false));
