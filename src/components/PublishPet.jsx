@@ -11,6 +11,7 @@ export default function PublishPet() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
   const fileInputRef = useRef(null);
   const [tab, setTab] = useState('lost');
+  const [viewTab, setViewTab] = useState('lost');
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -133,7 +134,7 @@ export default function PublishPet() {
             {/* Tabs */}
             <div className="flex gap-2 mb-8">
               <button
-                onClick={() => setTab('lost')}
+                onClick={() => { setTab('lost'); setViewTab('lost'); }}
                 className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all ${
                   tab === 'lost'
                     ? 'bg-red-500 text-white shadow-lg'
@@ -144,7 +145,7 @@ export default function PublishPet() {
                 {t.publishPet.tabLost}
               </button>
               <button
-                onClick={() => setTab('adoption')}
+                onClick={() => { setTab('adoption'); setViewTab('adoption'); }}
                 className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all ${
                   tab === 'adoption'
                     ? 'bg-secondary-400 text-white shadow-lg'
@@ -292,28 +293,53 @@ export default function PublishPet() {
             )}
           </motion.div>
 
-          {/* Recent Publications */}
+          {/* Publications list filtered by viewTab */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <h3 className="text-2xl font-handwritten font-bold text-accent-600 mb-6">
-              {t.publishPet.recentTitle}
+            {/* View tab switcher */}
+            <div className="flex gap-2 mb-6">
+              <button
+                onClick={() => setViewTab('lost')}
+                className={`flex-1 py-2 rounded-xl font-semibold text-sm transition-all ${
+                  viewTab === 'lost'
+                    ? 'bg-red-500 text-white shadow'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                <Search className="w-4 h-4 inline mr-1" />
+                {t.publishPet.tabLost}
+              </button>
+              <button
+                onClick={() => setViewTab('adoption')}
+                className={`flex-1 py-2 rounded-xl font-semibold text-sm transition-all ${
+                  viewTab === 'adoption'
+                    ? 'bg-secondary-400 text-white shadow'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                <PawPrint className="w-4 h-4 inline mr-1" />
+                {t.publishPet.tabAdopt}
+              </button>
+            </div>
+            <h3 className="text-2xl font-handwritten font-bold text-accent-600 mb-4">
+              {viewTab === 'lost' ? t.publishPet.tabLost : t.publishPet.tabAdopt}
             </h3>
 
             {loadingPubs ? (
               <div className="text-center py-12">
                 <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto" />
               </div>
-            ) : publications.length === 0 ? (
+            ) : publications.filter(p => p.type === viewTab).length === 0 ? (
               <div className="bg-white rounded-2xl p-8 text-center border border-gray-100">
                 <PawPrint className="w-12 h-12 text-gray-300 mx-auto mb-3" />
                 <p className="text-gray-500">{t.publishPet.noPublications}</p>
               </div>
             ) : (
               <div className="space-y-4 max-h-[700px] overflow-y-auto pr-2">
-                {publications.map((pub, pubIdx) => (
+                {publications.filter(p => p.type === viewTab).map((pub, pubIdx) => (
                   <motion.div
                     key={pub.id}
                     className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow"

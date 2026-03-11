@@ -22,13 +22,32 @@ export default function AdopcionPage() {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetch('/api/adopciones')
-      .then((res) => res.json())
-      .then((data) => {
-        setAnimals(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch('/api/adopciones').then((r) => r.json()).catch(() => []),
+      fetch('/api/publications').then((r) => r.json()).catch(() => []),
+    ]).then(([adopciones, publications]) => {
+      const fromAdopciones = Array.isArray(adopciones) ? adopciones : [];
+      const fromPublications = Array.isArray(publications)
+        ? publications
+            .filter((p) => p.type === 'adoption')
+            .map((p) => ({
+              id: `pub-${p.id}`,
+              name: p.pet_name,
+              breed: '',
+              age: '',
+              gender: '',
+              size: '',
+              description: p.description,
+              image_url: p.image_url || null,
+              contact_number: p.contact_number,
+              owner: `${p.first_name} ${p.last_name}`,
+              where_found: p.where_found,
+              _fromPublication: true,
+            }))
+        : [];
+      setAnimals([...fromAdopciones, ...fromPublications]);
+      setLoading(false);
+    });
   }, []);
 
   const handleAdopt = (animal) => {
@@ -297,8 +316,9 @@ export default function AdopcionPage() {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img
-                      src={animal.image_url}
+                      src={animal.image_url || '/images/Imagen1.jpg'}
                       alt={animal.name}
+                      onError={(e) => { e.target.src = '/images/Imagen1.jpg'; }}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -313,11 +333,9 @@ export default function AdopcionPage() {
                       </span>
                     </div>
                     <div className="flex flex-wrap gap-3 text-sm text-gray-500 mb-4">
-                      <span>{animal.breed}</span>
-                      <span>&bull;</span>
-                      <span>{animal.age}</span>
-                      <span>&bull;</span>
-                      <span>{animal.gender}</span>
+                      {animal.breed && <><span>{animal.breed}</span><span>&bull;</span></>}
+                      {animal.age && <><span>{animal.age}</span><span>&bull;</span></>}
+                      {animal.gender ? <span>{animal.gender}</span> : animal._fromPublication && animal.where_found ? <span className="text-xs text-gray-400">Zona: {animal.where_found}</span> : null}
                     </div>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                       {animal.description}
