@@ -64,18 +64,23 @@ export default function PublishPet() {
 
       // Upload image first if one is selected
       if (imageFile) {
-        setUploading(true);
-        const uploadForm = new FormData();
-        uploadForm.append('file', imageFile);
-        const uploadRes = await fetch('/api/upload', {
-          method: 'POST',
-          body: uploadForm,
-        });
-        if (uploadRes.ok) {
-          const uploadData = await uploadRes.json();
-          image_url = uploadData.url;
+        try {
+          setUploading(true);
+          const uploadForm = new FormData();
+          uploadForm.append('file', imageFile);
+          const uploadRes = await fetch('/api/upload', {
+            method: 'POST',
+            body: uploadForm,
+          });
+          if (uploadRes.ok) {
+            const uploadData = await uploadRes.json();
+            image_url = uploadData.url;
+          }
+        } catch {
+          // Upload failed - continue without image
+        } finally {
+          setUploading(false);
         }
-        setUploading(false);
       }
 
       const res = await fetch('/api/publications', {

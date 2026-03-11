@@ -5,11 +5,12 @@ import { Brain, BookOpen, Heart } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
-const sectionImages = [
-  { src: '/images/Imagen10.jpg', captionKey: 'imageCaption1', tilt: -2 },
-  { src: '/images/Imagen12.jpg', captionKey: 'imageCaption2', tilt: 2.5 },
-  { src: '/images/Imagen11.jpg', captionKey: 'imageCaption3', tilt: -1.5 },
-];
+// Each image shown exactly once, at paragraph indices 1, 3, 5
+const imageAtParagraph = {
+  1: { src: '/images/Imagen10.jpg', captionKey: 'imageCaption1', tilt: -2, tape: 'washi-blue', align: 'justify-center', tapeSide: 'left-10 tape-tilt-slight-left' },
+  3: { src: '/images/Imagen12.jpg', captionKey: 'imageCaption2', tilt: 2.5, tape: 'washi-yellow', align: 'justify-end', tapeSide: 'right-8 tape-tilt-right' },
+  5: { src: '/images/Imagen11.jpg', captionKey: 'imageCaption3', tilt: -1.5, tape: 'washi-accent', align: 'justify-center', tapeSide: 'left-10 tape-tilt-slight-left' },
+};
 
 export default function PsychologicalAnalysis() {
   const sectionRef = useRef(null);
@@ -42,8 +43,7 @@ export default function PsychologicalAnalysis() {
         {/* Essay content with interspersed polaroid images */}
         <div className="space-y-10">
           {p.paragraphs.map((para, i) => {
-            const img = sectionImages[Math.floor(i / Math.ceil(p.paragraphs.length / sectionImages.length))];
-            const showImageAfter = (i === 1 || i === 3 || i === 5) && img;
+            const img = imageAtParagraph[i];
 
             return (
               <div key={i}>
@@ -57,17 +57,17 @@ export default function PsychologicalAnalysis() {
                   <p className="text-gray-700 leading-relaxed text-base sm:text-lg">{para}</p>
                 </motion.div>
 
-                {/* Polaroid inserted between paragraphs */}
-                {showImageAfter && (
+                {/* Polaroid inserted after specific paragraphs — each image used exactly once */}
+                {img && (
                   <motion.div
-                    className={`relative mt-8 mb-4 flex ${i === 3 ? 'justify-end' : 'justify-center'}`}
+                    className={`relative mt-8 mb-4 flex ${img.align}`}
                     initial={{ opacity: 0, rotate: img.tilt * 2 }}
                     animate={isInView ? { opacity: 1, rotate: img.tilt } : {}}
                     transition={{ duration: 0.8, delay: 0.3 + i * 0.05 }}
                     whileHover={{ rotate: 0, scale: 1.03 }}
                   >
                     <div className="relative inline-block">
-                      <div className={`washi-tape ${i === 1 ? 'washi-blue' : i === 3 ? 'washi-yellow' : 'washi-accent'} -top-3 ${i === 3 ? 'right-8 tape-tilt-right' : 'left-10 tape-tilt-slight-left'}`} />
+                      <div className={`washi-tape ${img.tape} -top-3 ${img.tapeSide}`} />
                       <div className="polaroid" style={{ transform: `rotate(${img.tilt}deg)`, maxWidth: '320px' }}>
                         <img
                           src={img.src}
