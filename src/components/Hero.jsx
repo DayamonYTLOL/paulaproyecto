@@ -33,7 +33,7 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1920&q=80')",
+          backgroundImage: "url('/images/Imagen4.jpg')",
           y: bgY,
         }}
       />

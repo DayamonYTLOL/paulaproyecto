@@ -17,14 +17,14 @@ import { useLanguage } from '@/lib/LanguageContext';
 const icons = [ShieldCheck, HeartHandshake, GraduationCap, Users, Home, Network, ShoppingBag, Building2];
 
 const cardImages = [
-  'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=400&q=80',
-  'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80',
-  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80',
-  'https://images.unsplash.com/photo-1450778869180-cfd0586e7b6b?w=400&q=80',
-  'https://images.unsplash.com/photo-1544568100-847a948585b9?w=400&q=80',
-  'https://images.unsplash.com/photo-1583337130417-13571c40b8e0?w=400&q=80',
-  'https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?w=400&q=80',
-  'https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?w=400&q=80',
+  '/images/Imagen1.jpg',
+  '/images/Imagen2.jpg',
+  '/images/Imagen5.jpg',
+  '/images/Imagen9.jpg',
+  '/images/Imagen10.jpg',
+  '/images/Imagen12.jpg',
+  '/images/Imagen6.jpg',
+  '/images/Imagen7.jpg',
 ];
 
 const tilts = [3, -2, 2.5, -3, 1.5, -2.5, 3, -1.5];

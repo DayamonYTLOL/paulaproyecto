@@ -9,6 +9,7 @@ const translations = {
       donations: 'Donaciones',
       contact: 'Contáctanos',
       publishPet: 'Publicar Mascota',
+      psychAnalysis: 'Análisis Psicológico',
     },
     hero: {
       badge: 'Fundación sin ánimo de lucro',
@@ -76,6 +77,23 @@ const translations = {
       p1: 'Cada animal que llega a nuestra fundación tiene una historia única. Desde rescates en las calles más difíciles hasta transformaciones increíbles llenas de amor y esperanza.',
       p2: 'En nuestro blog compartimos estas historias para que conozcas el impacto real de tu apoyo y cómo cada contribución transforma vidas.',
       cta: 'Blog',
+    },
+    psychologicalAnalysis: {
+      tag: 'ANÁLISIS',
+      title: 'Análisis Psicológico del Abandono Animal',
+      subtitle: 'Entendiendo las raíces emocionales y psicológicas detrás del abandono',
+      paragraphs: [
+        'El abandono animal es una acción irresponsable de dejar a un animal sin cuidado, supervisión o proveer para su vida. Gran parte de esto es causado por personas que sufren problemas de salud mental que dejan a sus mascotas en la calle. Sin embargo, estos problemas tienen múltiples consecuencias.',
+        'La primera se basa en las personas que compran animales extravagantes con todo el dinero que tienen y no pueden mantenerse a sí mismas ni a los animales, por lo que terminan dejándolos en la calle. Luego están los que compran un animal que resulta ser una responsabilidad mayor de lo que pensaban. Simplemente los dejan atrás porque no pudieron cumplir con el trabajo. Los siguientes son los que viven en la calle y agarran un animal callejero «como compañía» y después simplemente los abandonan.',
+        'Más allá de estas situaciones, los aspectos psicológicos muestran motivaciones más profundas. Muchos adoptan o compran animales por la influencia de sentimientos del momento, generalmente soledad o presión social. Una vez que se recuperan y se sienten mejor, el animal se convierte en una carga en lugar de una compañía reconfortante, lo que lleva al abandono. Algunas personas proyectan sus frustraciones —generalmente problemas económicos o conflictos familiares— sobre el animal. La mascota se convierte en una fuente de estrés más que en un compañero, y abandonarla se siente como recuperar el control sobre las cosas que antes les causaban estrés.',
+        'Un factor adicional es la incapacidad de manejar obligaciones a largo plazo. Los mecanismos de evitación en psicología han sido observados en individuos para «resolver» el problema eliminando al animal, en lugar de enfrentar sus propios problemas. En algunos hogares, los animales son tratados como objetos que se pueden desechar, en lugar de seres con sentimientos. Esta idea hace que el abandono parezca «aceptable», apoyando la creencia de que dejar a un animal atrás es válido cuando las circunstancias cambian.',
+        'También hay situaciones en las que la depresión o la ansiedad nublan el juicio de las personas y el abandono es menos una decisión consciente, debido a que las personas son incapaces de brindar cuidado. Al ver estos problemas desde una perspectiva emocional, el abandono a menudo simboliza un conflicto de asuntos reales. Las personas pueden inicialmente buscar animales para llenar su vacío emocional, deseando compañía y amor, pero cuando surgen los problemas de la vida, la relación con la mascota queda en segundo plano. Pueden surgir sentimientos de culpa, vergüenza o frustración porque no pudieron cuidar bien al animal, y en lugar de procesar estas emociones, los individuos las expresan eliminando la carga: el animal.',
+        'El miedo al fracaso también es importante: para algunas personas, admitir que no pueden cuidar bien a una mascota se siente como una «derrota» en un desafío que ellos mismos aceptaron. El abandono se convierte en una forma de escapar de la realización de que cometieron un error y no pudieron superar la dificultad.',
+        'Finalmente, el abandono animal no es solo un problema social o legal, sino también emocional y psicológico. Muestra cómo las personas manejan —o no logran manejar— sus propios problemas y responsabilidades. Comprender estos patrones emocionales es muy importante porque la prevención requiere más que leyes: requiere responsabilidad, educación y sistemas de apoyo que ayuden a las personas a manejar sus propios problemas antes de proyectarlos sobre los animales que supuestamente estaban cuidando.',
+      ],
+      imageCaption1: 'Cada abandono tiene una historia detrás',
+      imageCaption2: 'La calle no debería ser su hogar',
+      imageCaption3: 'Comprensión y educación cambian vidas',
     },
     whyAdoptRescue: {
       adoptTag: '¿POR QUÉ ADOPTAR?',
@@ -246,6 +264,7 @@ const translations = {
       donations: 'Donations',
       contact: 'Contact Us',
       publishPet: 'Publish Pet',
+      psychAnalysis: 'Psychological Analysis',
     },
     hero: {
       badge: 'Non-profit foundation',
@@ -421,6 +440,23 @@ const translations = {
           ],
         },
       ],
+    },
+    psychologicalAnalysis: {
+      tag: 'ANALYSIS',
+      title: 'Psychological Analysis of Animal Abandonment',
+      subtitle: 'Understanding the emotional and psychological roots behind abandonment',
+      paragraphs: [
+        'Animal abandonment is a reckless action of leaving an animal without care, supervision, or providing for its life. A great part of it is caused by people suffering mental health problems that leave their pets on the street. Yet these problems have multiple consequences.',
+        'The first one is based on the people that buy extravagant animals with all the money they have and they cannot maintain themselves or the animals, so they end up dropping them in the street. Then there are those that buy an animal that is a bigger responsibility than they thought it was. So they just leave them behind because they couldn\'t do the job. Next are the ones who live on the street and grab a street animal "for company" and afterwards they just dump them.',
+        'Yet past these situations, psychological aspects show bigger motivations. Many adopt or purchase animals because of the influence of feelings that they have at the moment, that are usually loneliness or social pressure. Once they get back up and feel better the animal becomes a burden rather than a comfortable company leading to abandonment. Some people project their frustrations that usually are financial problems or family conflicts onto the animal. The pet becomes a stress more than a companion and dumping it feels like regaining control over the things they once stressed for.',
+        'An additional factor is the inability to handle long-term obligations. Avoidance mechanisms in psychology have been seen in individuals to "solve" the problem by removing the animal, instead of confronting their own problems. In some homes animals are treated like objects you can throw aside, rather than beings with feelings. This idea makes abandonment something "okay", supporting the belief that leaving an animal behind is acceptable when circumstances change.',
+        'There are also situations when depression or anxiety clouds people\'s judgment and abandonment is less a conscious decision due to people being unable to provide care. When seeing these problems through an emotional perspective, abandonment often symbolizes a conflict of real matters. People may initially look for animals to fill their emotional empty feeling wishing for a companion and love, but when life problems come up the relationship with the pet gets put aside. Feelings of guilt, shame, or frustration can come up because they couldn\'t take good care of the animal and instead of processing these emotions, individuals express them by removing the burden, the animal.',
+        'Fear of failing also is important because for some people admitting they can\'t take good care of a pet feels like "defeat" in a challenge they welcomed to their life. Abandonment becomes a way to escape the realization that they made a mistake and couldn\'t accomplish overcoming the struggle.',
+        'Finally animal abandonment is not only a social or legal issue but also an emotional and psychological one. It shows how people manage or fail to manage their own problems and responsibilities. Understanding these emotional patterns is very important because prevention requires more than laws, it requires responsibility, education, and support systems that help people handle their own problems before they project them onto the animals they supposedly were taking care of.',
+      ],
+      imageCaption1: 'Every abandonment has a story behind it',
+      imageCaption2: 'The street should not be their home',
+      imageCaption3: 'Understanding and education change lives',
     },
     whyAdoptRescue: {
       adoptTag: 'WHY ADOPT?',

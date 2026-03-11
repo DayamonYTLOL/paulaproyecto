@@ -6,9 +6,9 @@ import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const testimImages = [
-  'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=300&q=80',
-  'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&q=80',
-  'https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?w=300&q=80',
+  '/images/Imagen6.jpg',
+  '/images/Imagen7.jpg',
+  '/images/Imagen8.jpg',
 ];
 
 const tiltAngles = [-2, 1.5, -1];

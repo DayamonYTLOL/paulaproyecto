@@ -40,8 +40,8 @@ export default function Nosotros() {
               <div className="washi-tape washi-blue -top-3 left-10 tape-tilt-slight-left" />
               <div className="polaroid" style={{ transform: 'rotate(-3deg)' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1508532566027-b2579cd88fd3?w=600&q=80"
-                  alt="Perro de calle"
+                  src="/images/Imagen3.jpg"
+                  alt="Cachorros en la calle"
                   className="w-full h-64 sm:h-72 object-cover"
                 />
                 <p className="font-handwritten text-center text-gray-500 text-lg mt-1">Nuestros peluditos</p>
@@ -86,8 +86,8 @@ export default function Nosotros() {
               <div className="washi-tape washi-yellow -top-3 right-8 tape-tilt-right" />
               <div className="polaroid" style={{ transform: 'rotate(3deg)', maxWidth: '320px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&q=80"
-                  alt="Perro feliz"
+                  src="/images/Imagen11.jpg"
+                  alt="Perro esperando en la calle"
                   className="w-full h-56 object-cover"
                 />
                 <p className="font-handwritten text-center text-gray-500 text-lg mt-1">Felices juntos</p>

@@ -62,7 +62,7 @@ export default function WhyAdoptRescue() {
               <div className="washi-tape washi-blue -top-3 left-12 tape-tilt-slight-left" />
               <div className="polaroid" style={{ transform: 'rotate(-2deg)', maxWidth: '360px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=700&q=80"
+                  src="/images/Imagen1.jpg"
                   alt="Perro adoptado feliz"
                   className="w-full h-64 object-cover"
                 />
@@ -163,8 +163,8 @@ export default function WhyAdoptRescue() {
               <div className="washi-tape washi-yellow -top-3 right-10 tape-tilt-slight-right" />
               <div className="polaroid" style={{ transform: 'rotate(2deg)', maxWidth: '360px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1494947665470-20322015e3a8?w=700&q=80"
-                  alt="Perro en la calle"
+                  src="/images/Imagen5.jpg"
+                  alt="Gatito en la calle"
                   className="w-full h-64 object-cover"
                 />
                 <p className="font-handwritten text-center text-gray-400 text-lg mt-1">Esperando una mano</p>

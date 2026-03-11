@@ -16,6 +16,7 @@ export default function Navbar() {
     { name: t.nav.adopt, href: '/adopcion' },
     { name: t.nav.publishPet, href: '/#publicar-mascota' },
     { name: t.nav.blog, href: '/blog' },
+    { name: t.nav.psychAnalysis, href: '/analisis-psicologico' },
     { name: t.nav.faq, href: '/#faq' },
   ];
 
