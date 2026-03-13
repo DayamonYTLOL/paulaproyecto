@@ -2,7 +2,8 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { PawPrint, Phone, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Phone, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -37,7 +38,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
           >
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <PawPrint className="w-7 h-7 text-secondary-300" />
+              <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
               <span className="text-lg font-handwritten font-bold">Huellitas Perdidas</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">{t.footer.desc}</p>
