@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, PawPrint, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Navbar() {
@@ -40,10 +41,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <PawPrint
-              className={`w-8 h-8 transition-colors ${
-                scrolled ? 'text-secondary-500' : 'text-white'
-              } group-hover:text-secondary-400`}
+            <Image
+              src="/images/logo.png"
+              alt="Huellitas Perdidas"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain drop-shadow"
             />
             <span
               className={`text-xl font-handwritten font-bold transition-colors ${

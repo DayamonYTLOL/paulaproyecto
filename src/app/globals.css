@@ -16,6 +16,10 @@ body {
   background: rgb(var(--background-rgb));
 }
 
+p {
+  text-align: justify;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
