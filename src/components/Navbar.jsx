@@ -14,7 +14,6 @@ export default function Navbar() {
   const navLinks = [
     { name: t.nav.about, href: '/#nosotros' },
     { name: t.nav.whatWeDo, href: '/#que-hacemos' },
-    { name: t.nav.adopt, href: '/adopcion' },
     { name: t.nav.publishPet, href: '/#publicar-mascota' },
     { name: t.nav.blog, href: '/blog' },
     { name: t.nav.psychAnalysis, href: '/analisis-psicologico' },

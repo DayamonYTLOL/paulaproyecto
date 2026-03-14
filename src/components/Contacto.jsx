@@ -1,11 +1,9 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
-
-const contactIcons = [Phone, Mail, MapPin];
 
 export default function Contacto() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -37,60 +35,11 @@ export default function Contacto() {
   return (
     <section id="contacto" ref={sectionRef} className="py-24 scrapbook-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-12">
-          <motion.div
-            className="lg:col-span-2 space-y-8"
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+        <motion.div
+            className="max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            {[
-              { icon: Phone, label: t.contact.phone, value: '+58 412 1234567', isLink: false },
-              { icon: Mail, label: t.contact.email, value: 'fundacionhuellitasperdidas@gmail.com', isLink: true },
-              { icon: MapPin, label: t.contact.location, value: t.contact.locationValue, isLink: false },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={i}
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
-                >
-                  <div className="w-12 h-12 bg-secondary-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-secondary-500" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-accent-700 mb-1">{item.label}</h4>
-                    {item.isLink ? (
-                      <a href={`mailto:${item.value}`} className="text-secondary-500 hover:text-secondary-600 transition-colors">{item.value}</a>
-                    ) : (
-                      <p className="text-gray-600">{item.value}</p>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-            <motion.div
-              className="relative mt-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <div className="washi-tape washi-yellow -top-3 left-8 tape-tilt-slight-right" />
-              <div className="polaroid" style={{ transform: 'rotate(2deg)' }}>
-                <img src="/images/Imagen9.jpg" alt="Contacto" className="w-full h-40 object-cover" />
-                <p className="font-handwritten text-center text-gray-400 text-base mt-1">Escríbenos</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
           >
             {status === 'success' ? (
               <motion.div
@@ -140,7 +89,6 @@ export default function Contacto() {
               </form>
             )}
           </motion.div>
-        </div>
       </div>
     </section>
   );

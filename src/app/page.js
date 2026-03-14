@@ -2,7 +2,6 @@ import Hero from '@/components/Hero';
 import Nosotros from '@/components/Nosotros';
 import QueHacemos from '@/components/QueHacemos';
 import RescueGuide from '@/components/RescueGuide';
-import WhyAdoptRescue from '@/components/WhyAdoptRescue';
 import PublishPet from '@/components/PublishPet';
 import Testimonios from '@/components/Testimonios';
 import FAQ from '@/components/FAQ';
@@ -15,7 +14,6 @@ export default function Home() {
       <Nosotros />
       <QueHacemos />
       <RescueGuide />
-      <WhyAdoptRescue />
       <PublishPet />
       <Testimonios />
       <FAQ />
