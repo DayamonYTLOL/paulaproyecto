@@ -15,7 +15,6 @@ export default function Footer() {
   const menuLinks = [
     { name: t.nav.about, href: '/#nosotros' },
     { name: t.nav.whatWeDo, href: '/#que-hacemos' },
-    { name: t.nav.adopt, href: '/adopcion' },
     { name: t.nav.publishPet, href: '/#publicar-mascota' },
     { name: t.nav.blog, href: '/blog' },
     { name: t.nav.faq, href: '/#faq' },
@@ -61,26 +60,6 @@ export default function Footer() {
                   <Link href={link.href} className="text-gray-400 hover:text-secondary-300 transition-colors text-sm">{link.name}</Link>
                 </motion.li>
               ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">{t.footer.contactTitle}</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-gray-400 text-sm">
-                <Phone className="w-4 h-4 text-secondary-300" />
-                +58 412 1234567
-              </li>
-              <li>
-                <a href="mailto:fundacionhuellitasperdidas@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-secondary-300 transition-colors text-sm">
-                  <Mail className="w-4 h-4 text-secondary-300" />
-                  fundacionhuellitasperdidas@gmail.com
-                </a>
-              </li>
             </ul>
           </motion.div>
 

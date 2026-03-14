@@ -84,12 +84,6 @@ export default function Navbar() {
               <Globe className="w-4 h-4" />
               {lang === 'es' ? 'EN' : 'ES'}
             </button>
-            <Link
-              href="/#contacto"
-              className="ml-2 px-5 py-2.5 bg-secondary-400 hover:bg-secondary-500 text-white rounded-full text-sm font-semibold transition-all duration-200 shadow-lg shadow-secondary-500/25 hover:shadow-secondary-500/40"
-            >
-              {t.nav.contact}
-            </Link>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -136,13 +130,6 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/#contacto"
-            onClick={() => setIsOpen(false)}
-            className="block mx-4 mt-4 px-5 py-3 bg-secondary-400 hover:bg-secondary-500 text-white rounded-full text-center font-semibold transition-colors"
-          >
-            {t.nav.contact}
-          </Link>
         </div>
       </div>
     </header>
