@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useLanguage } from '@/lib/LanguageContext';
 
 const data = [
   { type: 'Dog',   health: 'Injured',       location: 'Baruta',              date: '2025-10-01', org: 'Fundación TEPA',              status: 'Rescued', notes: 'Found near Córdoba Blvd' },
@@ -46,6 +47,8 @@ const allStatuses = ['All', 'Rescued', 'Pending'];
 export default function ReportedAnimals() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
+  const ra = t.reportedAnimals;
   const [typeFilter, setTypeFilter] = useState('All');
   const [statusFilter, setStatusFilter] = useState('All');
 
@@ -69,13 +72,13 @@ export default function ReportedAnimals() {
           transition={{ duration: 0.7 }}
         >
           <span className="stamp text-secondary-600 border-secondary-400 text-lg inline-block mb-4">
-            BASE DE DATOS
+            {ra.tag}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-handwritten font-bold text-accent-600 mb-3">
-            Animales Reportados
+            {ra.title}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
-            Registro de animales reportados, su estado de salud, rescatistas asignados y situación actual.
+            {ra.subtitle}
           </p>
         </motion.div>
 
@@ -87,10 +90,10 @@ export default function ReportedAnimals() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {[
-            { label: 'Total reportados', value: data.length, color: 'bg-accent-50 border-accent-200 text-accent-700' },
-            { label: 'Rescatados', value: rescued, color: 'bg-emerald-50 border-emerald-200 text-emerald-700' },
-            { label: 'Pendientes', value: pending, color: 'bg-yellow-50 border-yellow-200 text-yellow-700' },
-            { label: 'Organizaciones', value: Array.from(new Set(data.map(d => d.org))).length, color: 'bg-secondary-50 border-secondary-200 text-secondary-700' },
+            { label: ra.totalReported, value: data.length, color: 'bg-accent-50 border-accent-200 text-accent-700' },
+            { label: ra.rescued, value: rescued, color: 'bg-emerald-50 border-emerald-200 text-emerald-700' },
+            { label: ra.pending, value: pending, color: 'bg-yellow-50 border-yellow-200 text-yellow-700' },
+            { label: ra.organizations, value: Array.from(new Set(data.map(d => d.org))).length, color: 'bg-secondary-50 border-secondary-200 text-secondary-700' },
           ].map((s, i) => (
             <div key={i} className={`rounded-2xl border-2 p-4 text-center ${s.color}`}>
               <div className="text-3xl font-handwritten font-bold">{s.value}</div>
@@ -106,18 +109,18 @@ export default function ReportedAnimals() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <span className="text-sm font-semibold text-accent-600 mr-1">Tipo:</span>
-          {allTypes.map(t => (
-            <button key={t} onClick={() => setTypeFilter(t)}
+          <span className="text-sm font-semibold text-accent-600 mr-1">{ra.filterType}</span>
+          {allTypes.map(type => (
+            <button key={type} onClick={() => setTypeFilter(type)}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all border ${
-                typeFilter === t
+                typeFilter === type
                   ? 'bg-accent-600 text-white border-accent-600'
                   : 'bg-white text-accent-600 border-accent-200 hover:border-accent-400'
               }`}>
-              {t !== 'All' && typeEmoji[t]} {t === 'All' ? 'Todos' : t}
+              {type !== 'All' && typeEmoji[type]} {type === 'All' ? ra.filterAll : type}
             </button>
           ))}
-          <span className="text-sm font-semibold text-accent-600 ml-3 mr-1">Estado:</span>
+          <span className="text-sm font-semibold text-accent-600 ml-3 mr-1">{ra.filterStatus}</span>
           {allStatuses.map(s => (
             <button key={s} onClick={() => setStatusFilter(s)}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all border ${
@@ -125,7 +128,7 @@ export default function ReportedAnimals() {
                   ? 'bg-secondary-500 text-white border-secondary-500'
                   : 'bg-white text-secondary-600 border-secondary-200 hover:border-secondary-400'
               }`}>
-              {s === 'All' ? 'Todos' : s}
+              {s === 'All' ? ra.filterAll : s}
             </button>
           ))}
         </motion.div>
@@ -140,7 +143,7 @@ export default function ReportedAnimals() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-accent-600 text-white">
-                {['Tipo', 'Estado de Salud', 'Ubicación', 'Fecha', 'Organización Rescatista', 'Estado', 'Notas'].map(h => (
+                {[ra.colType, ra.colHealth, ra.colLocation, ra.colDate, ra.colOrg, ra.colStatus, ra.colNotes].map(h => (
                   <th key={h} className="px-4 py-3 text-left font-semibold tracking-wide">{h}</th>
                 ))}
               </tr>
@@ -164,7 +167,7 @@ export default function ReportedAnimals() {
             </tbody>
           </table>
           {filtered.length === 0 && (
-            <div className="text-center py-10 text-gray-400 font-handwritten text-lg bg-white">No hay registros con estos filtros.</div>
+            <div className="text-center py-10 text-gray-400 font-handwritten text-lg bg-white">{ra.noRecords}</div>
           )}
         </motion.div>
 
@@ -191,7 +194,7 @@ export default function ReportedAnimals() {
             </motion.div>
           ))}
           {filtered.length === 0 && (
-            <div className="text-center py-10 text-gray-400 font-handwritten text-lg">No hay registros con estos filtros.</div>
+            <div className="text-center py-10 text-gray-400 font-handwritten text-lg">{ra.noRecords}</div>
           )}
         </div>
 

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';

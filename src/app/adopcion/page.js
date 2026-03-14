@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { Search, Filter, Heart, MapPin, Calendar } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function AdopcionPage() {
+  const { t } = useLanguage();
+  const ta = t.adopcion;
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedAnimal, setSelectedAnimal] = useState(null);
@@ -305,7 +308,7 @@ export default function AdopcionPage() {
           {loading ? (
             <div className="text-center py-20">
               <div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-gray-500 mt-4">Cargando peludos...</p>
+              <p className="text-gray-500 mt-4">{ta.loading}</p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -322,7 +325,7 @@ export default function AdopcionPage() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      Disponible
+                      {ta.available}
                     </div>
                   </div>
                   <div className="p-6">
@@ -335,7 +338,7 @@ export default function AdopcionPage() {
                     <div className="flex flex-wrap gap-3 text-sm text-gray-500 mb-4">
                       {animal.breed && <><span>{animal.breed}</span><span>&bull;</span></>}
                       {animal.age && <><span>{animal.age}</span><span>&bull;</span></>}
-                      {animal.gender ? <span>{animal.gender}</span> : animal._fromPublication && animal.where_found ? <span className="text-xs text-gray-400">Zona: {animal.where_found}</span> : null}
+                      {animal.gender ? <span>{animal.gender}</span> : animal._fromPublication && animal.where_found ? <span className="text-xs text-gray-400">{ta.zone}: {animal.where_found}</span> : null}
                     </div>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                       {animal.description}
@@ -345,7 +348,7 @@ export default function AdopcionPage() {
                       className="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-semibold transition-colors flex items-center justify-center gap-2"
                     >
                       <Heart className="w-4 h-4" />
-                      Quiero adoptar
+                      {ta.wantToAdopt}
                     </button>
                   </div>
                 </div>
@@ -356,7 +359,7 @@ export default function AdopcionPage() {
           {!loading && filteredAnimals.length === 0 && (
             <div className="text-center py-20">
               <p className="text-gray-500 text-lg">
-                No hay animales disponibles con este filtro.
+                {ta.noAnimals}
               </p>
             </div>
           )}

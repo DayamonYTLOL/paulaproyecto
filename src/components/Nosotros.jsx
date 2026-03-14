@@ -44,7 +44,7 @@ export default function Nosotros() {
                   alt="Cachorros en la calle"
                   className="w-full h-64 sm:h-72 object-cover"
                 />
-                <p className="font-handwritten text-center text-gray-500 text-lg mt-1">Nuestros peluditos</p>
+                <p className="font-handwritten text-center text-gray-500 text-lg mt-1">{t.nosotros.caption1}</p>
               </div>
             </motion.div>
 
@@ -90,7 +90,7 @@ export default function Nosotros() {
                   alt="Perro esperando en la calle"
                   className="w-full h-56 object-cover"
                 />
-                <p className="font-handwritten text-center text-gray-500 text-lg mt-1">Felices juntos</p>
+                <p className="font-handwritten text-center text-gray-500 text-lg mt-1">{t.nosotros.caption2}</p>
               </div>
             </motion.div>
           </div>
