@@ -267,11 +267,11 @@ export default function AdopcionPage() {
                   disabled={formStatus === 'loading'}
                   className="w-full py-4 bg-primary-500 hover:bg-primary-600 text-white rounded-full font-semibold transition-colors disabled:opacity-50"
                 >
-                  {formStatus === 'loading' ? 'Enviando...' : 'Enviar solicitud de adopción'}
+                  {formStatus === 'loading' ? ta.formSending : ta.formSubmit}
                 </button>
                 {formStatus === 'error' && (
                   <p className="text-red-500 text-sm text-center">
-                    Hubo un error. Por favor intenta de nuevo.
+                    {ta.formError}
                   </p>
                 )}
               </form>
@@ -286,10 +286,10 @@ export default function AdopcionPage() {
           {/* Filters */}
           <div className="flex flex-wrap gap-3 justify-center mb-12">
             {[
-              { label: 'Todos', value: 'all' },
-              { label: 'Pequeño', value: 'pequeño' },
-              { label: 'Mediano', value: 'mediano' },
-              { label: 'Grande', value: 'grande' },
+              { label: ta.filterAll, value: 'all' },
+              { label: ta.filterSmall, value: 'pequeño' },
+              { label: ta.filterMedium, value: 'mediano' },
+              { label: ta.filterLarge, value: 'grande' },
             ].map((f) => (
               <button
                 key={f.value}

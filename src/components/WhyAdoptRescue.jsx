@@ -66,7 +66,7 @@ export default function WhyAdoptRescue() {
                   alt="Perro adoptado feliz"
                   className="w-full h-64 object-cover"
                 />
-                <p className="font-handwritten text-center text-gray-400 text-lg mt-1">¡Hogar dulce hogar!</p>
+                <p className="font-handwritten text-center text-gray-400 text-lg mt-1">{w.adoptCaption}</p>
               </div>
               {/* Sticker */}
               <motion.div
@@ -76,7 +76,7 @@ export default function WhyAdoptRescue() {
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
               >
-                <span className="font-handwritten text-sm font-bold text-center leading-tight px-2">¡Adopta!</span>
+                <span className="font-handwritten text-sm font-bold text-center leading-tight px-2">{w.adoptSticker}</span>
               </motion.div>
             </div>
           </motion.div>
@@ -167,7 +167,7 @@ export default function WhyAdoptRescue() {
                   alt="Gatito en la calle"
                   className="w-full h-64 object-cover"
                 />
-                <p className="font-handwritten text-center text-gray-400 text-lg mt-1">Esperando una mano</p>
+                <p className="font-handwritten text-center text-gray-400 text-lg mt-1">{w.rescueCaption}</p>
               </div>
               {/* Pushpin */}
               <div className="pushpin-blue absolute -top-2 right-4" />

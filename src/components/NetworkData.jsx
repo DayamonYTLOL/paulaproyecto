@@ -38,7 +38,22 @@ const zones = [
   { municipality: 'Caucagua (Acevedo Municipality)', activity: 'Rural rescue operations', notes: 'Rescate bovinos y equinos en carreteras rurales — AgroRescate Miranda' },
 ];
 
-const services = [
+const servicesES = [
+  'Consultas médicas gratuitas',
+  'Atención de emergencia para animales heridos o enfermos',
+  'Vacunación',
+  'Desparasitación y control de parásitos',
+  'Corte de uñas y limpieza de oídos',
+  'Evaluación nutricional y alimentación',
+  'Asesoría legal en leyes de protección animal',
+  'Esterilización y control poblacional',
+  'Coordinación de adopción presencial y remota',
+  'Asesoría legal en protección animal',
+  'Control poblacional (esterilización)',
+  'Coordinación de adopción y rescate',
+];
+
+const servicesEN = [
   'Free medical consultations',
   'Emergency care for injured or sick animals',
   'Vaccinations',
@@ -60,18 +75,37 @@ const nd = {
     sectionSubtitle: 'Fundaciones, albergues, zonas activas y servicios que conforman la red de rescate animal en el Estado Miranda.',
     rescuersTitle: 'Rescatistas y Fundaciones Activas',
     sheltersTitle: 'Albergues y Centros Veterinarios',
-    zonesTitle: 'Zonas de Alta Actividad',
+    zonesTitle: 'Zonas de Alta Actividad para Animales Callejeros',
     servicesTitle: 'Servicios Ofrecidos en Campañas',
     colName: 'Nombre / Organización',
     colType: 'Tipo',
     colLocation: 'Ubicación / Cobertura',
     colActivities: 'Actividades',
-    colContact: 'Contacto / Redes',
-    colServices: 'Servicios',
+    colContact: 'Contacto / Redes Sociales',
+    colServices: 'Servicios Prestados',
     colMunicipality: 'Municipio / Zona',
     colActivity: 'Tipo de Actividad',
     colNotes: 'Notas',
-    service: 'Servicio',
+    typeLabels: {
+      'Foundation': 'Fundación',
+      'Municipal Program': 'Programa Municipal',
+      'Government Program': 'Programa de Gobierno',
+      'Shelter': 'Albergue',
+      'Professional Association': 'Asociación Profesional',
+      'Municipal': 'Municipal',
+    },
+    activityLabels: {
+      'Veterinary campaign': 'Campaña veterinaria',
+      'Permanent veterinary station': 'Estación veterinaria permanente',
+      'High stray population': 'Alta población de callejeros',
+      'Rescue and sterilization campaigns': 'Campañas de rescate y esterilización',
+      'Mobile veterinary units': 'Unidades veterinarias móviles',
+      'Community outreach and rescue': 'Alcance comunitario y rescate',
+      'Street-level rescue and care': 'Rescate y atención callejera',
+      'Feeding and sterilization brigades': 'Brigadas de alimentación y esterilización',
+      'Rural rescue operations': 'Operaciones de rescate rural',
+    },
+    services: servicesES,
   },
   en: {
     sectionTag: 'RESCUE NETWORK',
@@ -90,7 +124,9 @@ const nd = {
     colMunicipality: 'Municipality / Area',
     colActivity: 'Activity Type',
     colNotes: 'Notes',
-    service: 'Service',
+    typeLabels: {},
+    activityLabels: {},
+    services: servicesEN,
   },
 };
 
@@ -114,6 +150,10 @@ function DataTable({ title, children, delay = 0, isInView }) {
       </div>
     </motion.div>
   );
+}
+
+function translateLabel(labels, value) {
+  return labels[value] || value;
 }
 
 export default function NetworkData() {
@@ -157,7 +197,7 @@ export default function NetworkData() {
             {rescuers.map((r, i) => (
               <tr key={i} className={`border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-secondary-50 transition-colors`}>
                 <td className="px-4 py-3 font-semibold text-accent-700">{r.name}</td>
-                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-accent-50 text-accent-700">{r.type}</span></td>
+                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-accent-50 text-accent-700">{translateLabel(tx.typeLabels, r.type)}</span></td>
                 <td className="px-4 py-3 text-gray-600">{r.location}</td>
                 <td className="px-4 py-3 text-gray-600">{r.activities}</td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{r.contact}</td>
@@ -182,7 +222,7 @@ export default function NetworkData() {
                   {s.name}
                   <span className="block text-xs text-gray-400 font-normal">{s.location}</span>
                 </td>
-                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-secondary-50 text-secondary-700">{s.type}</span></td>
+                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-secondary-50 text-secondary-700">{translateLabel(tx.typeLabels, s.type)}</span></td>
                 <td className="px-4 py-3 text-gray-600">{s.services}</td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{s.contact}</td>
               </tr>
@@ -203,7 +243,7 @@ export default function NetworkData() {
             {zones.map((z, i) => (
               <tr key={i} className={`border-t border-gray-100 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-emerald-50 transition-colors`}>
                 <td className="px-4 py-3 font-semibold text-accent-700 whitespace-nowrap">{z.municipality}</td>
-                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">{z.activity}</span></td>
+                <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">{translateLabel(tx.activityLabels, z.activity)}</span></td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{z.notes}</td>
               </tr>
             ))}
@@ -221,7 +261,7 @@ export default function NetworkData() {
             {tx.servicesTitle}
           </h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {services.map((s, i) => (
+            {tx.services.map((s, i) => (
               <motion.div
                 key={i}
                 className="bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow"
