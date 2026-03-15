@@ -10,7 +10,7 @@ export default function PublishPet() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
   const fileInputRef = useRef(null);
-  const [tab, setTab] = useState('lost');
+  const [tab] = useState('lost');
   const [viewTab, setViewTab] = useState('lost');
   const [formData, setFormData] = useState({
     first_name: '',
@@ -116,30 +116,12 @@ export default function PublishPet() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            {/* Tabs */}
+            {/* Tab header */}
             <div className="flex gap-2 mb-8">
-              <button
-                onClick={() => { setTab('lost'); setViewTab('lost'); }}
-                className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all ${
-                  tab === 'lost'
-                    ? 'bg-red-500 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
+              <div className="flex-1 py-3 rounded-xl font-semibold text-sm text-center bg-red-500 text-white shadow-lg">
                 <Search className="w-4 h-4 inline mr-2" />
                 {t.publishPet.tabLost}
-              </button>
-              <button
-                onClick={() => { setTab('adoption'); setViewTab('adoption'); }}
-                className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all ${
-                  tab === 'adoption'
-                    ? 'bg-secondary-400 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                <PawPrint className="w-4 h-4 inline mr-2" />
-                {t.publishPet.tabAdopt}
-              </button>
+              </div>
             </div>
 
             {status === 'success' ? (
@@ -284,33 +266,8 @@ export default function PublishPet() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            {/* View tab switcher */}
-            <div className="flex gap-2 mb-6">
-              <button
-                onClick={() => setViewTab('lost')}
-                className={`flex-1 py-2 rounded-xl font-semibold text-sm transition-all ${
-                  viewTab === 'lost'
-                    ? 'bg-red-500 text-white shadow'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                <Search className="w-4 h-4 inline mr-1" />
-                {t.publishPet.tabLost}
-              </button>
-              <button
-                onClick={() => setViewTab('adoption')}
-                className={`flex-1 py-2 rounded-xl font-semibold text-sm transition-all ${
-                  viewTab === 'adoption'
-                    ? 'bg-secondary-400 text-white shadow'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                <PawPrint className="w-4 h-4 inline mr-1" />
-                {t.publishPet.tabAdopt}
-              </button>
-            </div>
             <h3 className="text-2xl font-handwritten font-bold text-accent-600 mb-4">
-              {viewTab === 'lost' ? t.publishPet.tabLost : t.publishPet.tabAdopt}
+              {t.publishPet.recentTitle}
             </h3>
 
             {loadingPubs ? (
