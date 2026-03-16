@@ -2,13 +2,12 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const footerRef = useRef(null);
   const isInView = useInView(footerRef, { once: true, margin: '-50px' });
 
@@ -18,12 +17,6 @@ export default function Footer() {
     { name: t.nav.publishPet, href: '/#publicar-mascota' },
     { name: t.nav.blog, href: '/blog' },
     { name: t.nav.faq, href: '/#faq' },
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, label: 'Facebook' },
-    { icon: Instagram, label: 'Instagram' },
-    { icon: Youtube, label: 'YouTube' },
   ];
 
   return (
@@ -38,7 +31,7 @@ export default function Footer() {
           >
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image src="/images/logo.png" alt="Logo" width={40} height={40} className="w-10 h-10 object-contain brightness-0 invert" />
-              <span className="text-lg font-handwritten font-bold">Huellitas Perdidas</span>
+              <span className="text-lg font-handwritten font-bold">{lang === 'es' ? 'Huellitas' : 'Little Paw Prints'}</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">{t.footer.desc}</p>
           </motion.div>
@@ -63,33 +56,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">{t.footer.social}</h4>
-            <div className="flex gap-3">
-              {socialLinks.map((s, i) => {
-                const Icon = s.icon;
-                return (
-                  <motion.a
-                    key={s.label}
-                    href="#"
-                    className="w-10 h-10 bg-accent-800 hover:bg-secondary-500 rounded-full flex items-center justify-center transition-colors"
-                    aria-label={s.label}
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </motion.a>
-                );
-              })}
-            </div>
-          </motion.div>
         </div>
 
         <motion.div
