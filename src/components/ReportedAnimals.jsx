@@ -44,6 +44,10 @@ const statusColor = {
 const allTypes = ['All', ...Array.from(new Set(data.map(d => d.type)))];
 const allStatuses = ['All', 'Rescued', 'Pending'];
 
+function tl(labels, key) {
+  return (labels && labels[key]) ? labels[key] : key;
+}
+
 export default function ReportedAnimals() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
@@ -51,6 +55,10 @@ export default function ReportedAnimals() {
   const ra = t.reportedAnimals;
   const [typeFilter, setTypeFilter] = useState('All');
   const [statusFilter, setStatusFilter] = useState('All');
+  const typeLabels = ra.typeLabels || {};
+  const healthLabels = ra.healthLabels || {};
+  const statusLabels = ra.statusLabels || {};
+  const statusFilterLabels = ra.statusFilter || {};
 
   const filtered = data.filter(row =>
     (typeFilter === 'All' || row.type === typeFilter) &&
@@ -117,7 +125,7 @@ export default function ReportedAnimals() {
                   ? 'bg-accent-600 text-white border-accent-600'
                   : 'bg-white text-accent-600 border-accent-200 hover:border-accent-400'
               }`}>
-              {type !== 'All' && typeEmoji[type]} {type === 'All' ? ra.filterAll : type}
+              {type !== 'All' && typeEmoji[type]} {type === 'All' ? ra.filterAll : tl(typeLabels, type)}
             </button>
           ))}
           <span className="text-sm font-semibold text-accent-600 ml-3 mr-1">{ra.filterStatus}</span>
@@ -128,7 +136,7 @@ export default function ReportedAnimals() {
                   ? 'bg-secondary-500 text-white border-secondary-500'
                   : 'bg-white text-secondary-600 border-secondary-200 hover:border-secondary-400'
               }`}>
-              {s === 'All' ? ra.filterAll : s}
+              {tl(statusFilterLabels, s)}
             </button>
           ))}
         </motion.div>
@@ -151,15 +159,15 @@ export default function ReportedAnimals() {
             <tbody>
               {filtered.map((row, i) => (
                 <tr key={i} className={`border-t border-gray-100 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-secondary-50`}>
-                  <td className="px-4 py-3 font-medium text-accent-700">{typeEmoji[row.type]} {row.type}</td>
+                  <td className="px-4 py-3 font-medium text-accent-700">{typeEmoji[row.type]} {tl(typeLabels, row.type)}</td>
                   <td className="px-4 py-3">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${healthColor[row.health]}`}>{row.health}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${healthColor[row.health]}`}>{tl(healthLabels, row.health)}</span>
                   </td>
                   <td className="px-4 py-3 text-gray-600">{row.location}</td>
                   <td className="px-4 py-3 text-gray-500 whitespace-nowrap">{row.date}</td>
                   <td className="px-4 py-3 text-gray-600">{row.org}</td>
                   <td className="px-4 py-3">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${statusColor[row.status]}`}>{row.status}</span>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${statusColor[row.status]}`}>{tl(statusLabels, row.status)}</span>
                   </td>
                   <td className="px-4 py-3 text-gray-500 text-xs">{row.notes}</td>
                 </tr>
@@ -181,11 +189,11 @@ export default function ReportedAnimals() {
               transition={{ duration: 0.4, delay: 0.1 + i * 0.03 }}
             >
               <div className="flex items-center justify-between">
-                <span className="font-bold text-accent-700 text-base">{typeEmoji[row.type]} {row.type}</span>
-                <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${statusColor[row.status]}`}>{row.status}</span>
+                <span className="font-bold text-accent-700 text-base">{typeEmoji[row.type]} {tl(typeLabels, row.type)}</span>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${statusColor[row.status]}`}>{tl(statusLabels, row.status)}</span>
               </div>
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className={`px-2 py-0.5 rounded-full font-semibold ${healthColor[row.health]}`}>{row.health}</span>
+                <span className={`px-2 py-0.5 rounded-full font-semibold ${healthColor[row.health]}`}>{tl(healthLabels, row.health)}</span>
                 <span className="text-gray-500">📍 {row.location}</span>
                 <span className="text-gray-400">{row.date}</span>
               </div>
