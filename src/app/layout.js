@@ -23,15 +23,14 @@ const caveat = Caveat({
 });
 
 export const metadata = {
-  title: 'Fundación Huellitas Perdidas | Albergue de perros y gatos',
+  title: 'Huellitas | Little Paw Prints',
   description:
-    'Fundación dedicada al rescate, rehabilitación y adopción responsable de animales en Venezuela. Brindamos amor y esperanza a los animales que más lo necesitan.',
+    'IB Personal Project — a bilingual platform dedicated to animal rescue, information, and community action in Venezuela.',
   openGraph: {
-    title: 'Fundación Huellitas Perdidas | Albergue de perros y gatos',
+    title: 'Huellitas | Little Paw Prints',
     description:
-      'Fundación dedicada al rescate, rehabilitación y adopción responsable de animales en Venezuela.',
+      'IB Personal Project — a bilingual platform dedicated to animal rescue, information, and community action in Venezuela.',
     type: 'website',
-    locale: 'es_VE',
   },
 };
 

@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2 group">
             <Image
               src="/images/logo.png"
-              alt="Huellitas Perdidas"
+              alt="Huellitas"
               width={48}
               height={48}
               className="w-12 h-12 object-contain drop-shadow"
@@ -52,7 +52,7 @@ export default function Navbar() {
                 scrolled ? 'text-accent-500' : 'text-white'
               }`}
             >
-              Huellitas Perdidas
+              {lang === 'es' ? 'Huellitas' : 'Little Paw Prints'}
             </span>
           </Link>
 

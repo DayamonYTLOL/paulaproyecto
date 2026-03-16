@@ -94,7 +94,7 @@ export default function PsychologicalAnalysis() {
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent-300 to-transparent" />
           <div className="flex items-center gap-3 bg-cream-100 border border-cream-300 rounded-full px-5 py-2 sticker">
             <Brain className="w-5 h-5 text-accent-500" />
-            <span className="font-handwritten text-accent-600 font-bold text-lg">Huellitas Perdidas</span>
+            <span className="font-handwritten text-accent-600 font-bold text-lg">Huellitas</span>
             <Heart className="w-4 h-4 text-secondary-400 fill-secondary-300" />
           </div>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent-300 to-transparent" />
