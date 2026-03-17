@@ -5,24 +5,24 @@ import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const rescuers = [
-  { name: 'Proyecto Nala', type: 'Foundation', location: 'Charallave / Los Teques / Miranda', activities: 'Permanent shelter, disabled animals care, adoption', contact: '0412-585-4321' },
-  { name: 'Santuario Animal América', type: 'Foundation', location: 'Guarenas, Miranda', activities: 'Rescue of dogs and cats, sanctuary care', contact: '0414-286-7375' },
-  { name: 'Protección Animal Baruta', type: 'Municipal Program', location: 'Baruta, Miranda', activities: 'Animal control, rescue, sterilization campaigns', contact: 'Facebook @ProtecciónAnimalBaruta' },
-  { name: 'Fundación Refugio Migema', type: 'Foundation', location: 'Guarenas, Miranda', activities: 'Shelter, adoption, veterinary care', contact: '414-286-7375 0' },
-  { name: 'Secretaría de Protección Animal Miranda', type: 'Government Program', location: 'Statewide Miranda', activities: 'Sterilization, vaccination, adoption campaigns', contact: 'Instagram @proteccionanimalmir...' },
-  { name: 'Fundación Animales con Futuro', type: 'Foundation', location: 'Guatire, Miranda', activities: 'Rescue, sterilization, adoption', contact: '0424-1234567' },
-  { name: 'Fundación Patitas Felices Miranda', type: 'Foundation', location: 'Ocumare del Tuy, Miranda', activities: 'Rescue, sterilization, adoption', contact: '0412-9876543' },
-  { name: 'Misión Nevado Miranda', type: 'Government Program', location: 'Statewide Miranda', activities: 'Sterilization, vaccination, rescue, adoption', contact: '0212-8605959' },
+  { name: 'Proyecto Nala', type: 'Foundation', location: 'Charallave / Los Teques / Miranda', activities: { en: 'Permanent shelter, disabled animals care, adoption', es: 'Refugio permanente, cuidado de animales discapacitados, rescate' }, contact: '0412-585-4321' },
+  { name: 'Santuario Animal América', type: 'Foundation', location: 'Guarenas, Miranda', activities: { en: 'Rescue of dogs and cats, sanctuary care', es: 'Rescate de perros y gatos, cuidado en santuario' }, contact: '0414-286-7375' },
+  { name: 'Protección Animal Baruta', type: 'Municipal Program', location: 'Baruta, Miranda', activities: { en: 'Animal control, rescue, sterilization campaigns', es: 'Control animal, rescate, campañas de esterilización' }, contact: 'Facebook @ProtecciónAnimalBaruta' },
+  { name: 'Fundación Refugio Migema', type: 'Foundation', location: 'Guarenas, Miranda', activities: { en: 'Shelter, adoption, veterinary care', es: 'Refugio, rescate, atención veterinaria' }, contact: '414-286-7375 0' },
+  { name: 'Secretaría de Protección Animal Miranda', type: 'Government Program', location: 'Statewide Miranda', activities: { en: 'Sterilization, vaccination, adoption campaigns', es: 'Esterilización, vacunación, campañas de rescate' }, contact: 'Instagram @proteccionanimalmir...' },
+  { name: 'Fundación Animales con Futuro', type: 'Foundation', location: 'Guatire, Miranda', activities: { en: 'Rescue, sterilization, adoption', es: 'Rescate, esterilización, cuidado animal' }, contact: '0424-1234567' },
+  { name: 'Fundación Patitas Felices Miranda', type: 'Foundation', location: 'Ocumare del Tuy, Miranda', activities: { en: 'Rescue, sterilization, adoption', es: 'Rescate, esterilización, cuidado animal' }, contact: '0412-9876543' },
+  { name: 'Misión Nevado Miranda', type: 'Government Program', location: 'Statewide Miranda', activities: { en: 'Sterilization, vaccination, rescue, adoption', es: 'Esterilización, vacunación, rescate animal' }, contact: '0212-8605959' },
 ];
 
 const shelters = [
-  { name: 'Protección Animal Baruta', location: 'Baruta', type: 'Municipal', services: 'Control and rescue', contact: 'Local government' },
-  { name: 'Salud Baruta', location: 'Baruta', type: 'Municipal', services: 'Veterinary services', contact: 'Local government' },
-  { name: 'Proyecto Nala', location: 'Charallave / Los Teques, Miranda', type: 'Shelter', services: 'Permanent shelter, disabled animals care, adoption', contact: '0412-5854321' },
-  { name: 'Santuario Animal América', location: 'Guarenas, Miranda', type: 'Shelter', services: 'Rescue of dogs and cats, sanctuary care', contact: '0414-2867375' },
-  { name: 'Misión Nevado Miranda', location: 'Statewide Miranda', type: 'Government Program', services: 'Sterilization, vaccination, rescue, adoption', contact: '0212-8605959' },
-  { name: 'Fundación Patitas Felices Miranda', location: 'Ocumare del Tuy', type: 'Shelter', services: 'Rescue, sterilization, adoption', contact: '0412-9876543' },
-  { name: 'Colegio de Médicos Veterinarios del Estado Miranda', location: 'Los Teques', type: 'Professional Association', services: 'Veterinary services, training, regulation', contact: '0424-1210497' },
+  { name: 'Protección Animal Baruta', location: 'Baruta', type: 'Municipal', services: { en: 'Control and rescue', es: 'Control y rescate' }, contact: 'Local government' },
+  { name: 'Salud Baruta', location: 'Baruta', type: 'Municipal', services: { en: 'Veterinary services', es: 'Servicios veterinarios' }, contact: 'Local government' },
+  { name: 'Proyecto Nala', location: 'Charallave / Los Teques, Miranda', type: 'Shelter', services: { en: 'Permanent shelter, disabled animals care, adoption', es: 'Refugio permanente, cuidado de animales discapacitados, rescate' }, contact: '0412-5854321' },
+  { name: 'Santuario Animal América', location: 'Guarenas, Miranda', type: 'Shelter', services: { en: 'Rescue of dogs and cats, sanctuary care', es: 'Rescate de perros y gatos, cuidado en santuario' }, contact: '0414-2867375' },
+  { name: 'Misión Nevado Miranda', location: 'Statewide Miranda', type: 'Government Program', services: { en: 'Sterilization, vaccination, rescue, adoption', es: 'Esterilización, vacunación, rescate animal' }, contact: '0212-8605959' },
+  { name: 'Fundación Patitas Felices Miranda', location: 'Ocumare del Tuy', type: 'Shelter', services: { en: 'Rescue, sterilization, adoption', es: 'Rescate, esterilización, cuidado animal' }, contact: '0412-9876543' },
+  { name: 'Colegio de Médicos Veterinarios del Estado Miranda', location: 'Los Teques', type: 'Professional Association', services: { en: 'Veterinary services, training, regulation', es: 'Servicios veterinarios, formación, regulación' }, contact: '0424-1210497' },
 ];
 
 const zones = [
@@ -199,7 +199,7 @@ export default function NetworkData() {
                 <td className="px-4 py-3 font-semibold text-accent-700">{r.name}</td>
                 <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-accent-50 text-accent-700">{translateLabel(tx.typeLabels, r.type)}</span></td>
                 <td className="px-4 py-3 text-gray-600">{r.location}</td>
-                <td className="px-4 py-3 text-gray-600">{r.activities}</td>
+                <td className="px-4 py-3 text-gray-600">{r.activities[lang] || r.activities.en}</td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{r.contact}</td>
               </tr>
             ))}
@@ -223,7 +223,7 @@ export default function NetworkData() {
                   <span className="block text-xs text-gray-400 font-normal">{s.location}</span>
                 </td>
                 <td className="px-4 py-3"><span className="px-2 py-0.5 rounded-full text-xs font-medium bg-secondary-50 text-secondary-700">{translateLabel(tx.typeLabels, s.type)}</span></td>
-                <td className="px-4 py-3 text-gray-600">{s.services}</td>
+                <td className="px-4 py-3 text-gray-600">{s.services[lang] || s.services.en}</td>
                 <td className="px-4 py-3 text-gray-500 text-xs">{s.contact}</td>
               </tr>
             ))}
