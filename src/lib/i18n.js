@@ -1,8 +1,8 @@
 const translations = {
   es: {
     nav: {
-      about: 'Quienes Somos',
-      whatWeDo: 'Qué hacemos',
+      about: 'Detrás de la Pantalla',
+      whatWeDo: 'Nuestro Impacto',
       adopt: 'Adopta',
       blog: 'Blog',
       faq: 'FAQ',
@@ -21,8 +21,8 @@ const translations = {
       adoptNow: 'Ver animales',
     },
     about: {
-      tag: 'NOSOTROS',
-      title: 'Quienes Somos',
+      tag: 'DETRÁS DE LA PANTALLA',
+      title: 'Detrás de la Pantalla',
       statsLabel: 'animales abandonados',
       p1: 'Huellitas es más que una página web, es una idea bien pensada de un proyecto en el que se ha trabajado durante muchos meses. Este es el Proyecto Personal del IB de una estudiante de décimo grado en la Academia Washington.',
       p2: 'Lo que comenzó como una iniciativa para ayudar a quienes más lo necesitan, en este caso los animales callejeros, evolucionó hasta convertirse en una plataforma digital llena de información actualizada, accesible y útil. Mi interés personal en la psicología, la fotografía y los animales fue lo que me impulsó a alcanzar mis objetivos en este proceso, donde, a través de la práctica y el contacto con profesionales, adquirí habilidades fundamentales para construir y lanzar este sitio desde cero.',
@@ -37,8 +37,8 @@ const translations = {
       communityDesc: 'Voluntarios comprometidos',
     },
     whatWeDo: {
-      tag: 'QUÉ HACEMOS',
-      title: 'Qué hace Huellitas',
+      tag: 'NUESTRO IMPACTO',
+      title: 'Nuestro Impacto',
       subtitle: 'Las áreas clave que conforman nuestra plataforma',
       services: [
         { title: '1. Centralización de Recursos Locales', desc: 'Encontrar ayuda no debería ser difícil durante una emergencia. Proporcionamos un directorio actualizado de refugios locales, rescatistas independientes y clínicas veterinarias para asegurar que cualquier persona que encuentre a un animal en apuros sepa exactamente a quién contactar.' },
@@ -98,16 +98,16 @@ const translations = {
     whyAdoptRescue: {
       adoptTag: '¿POR QUÉ RESCATAR A UNO?',
       adoptTitle: 'Rescatar cambia dos vidas',
-      adoptDesc: 'Cuando rescatas a un animal, le das una segunda oportunidad a un ser que ha sufrido el abandono. No solo cambias su vida — también transformas la tuya. Los animales rescatados lo saben, y te lo devuelven con amor incondicional.',
+      adoptDesc: 'Cuando rescatas a un animal, le das una segunda oportunidad a un ser que ha sufrido el abandono. No solo cambias su vida, también transformas la tuya. Los animales rescatados lo saben, y te lo devuelven con amor incondicional.',
       adoptReasons: [
         { title: 'Salvas una vida', desc: 'Cada rescate libera un espacio para atender a otro animal en necesidad.' },
         { title: 'Amor que se gana', desc: 'Los animales rescatados crean vínculos especiales con quienes les dan una oportunidad.' },
         { title: 'Lucha contra el abandono', desc: 'Rescatar es el acto más poderoso contra el abandono y el maltrato animal.' },
-        { title: 'Encuentra tu compañero', desc: 'Hay un peludo esperándote — de todas las edades, tamaños y personalidades.' },
+        { title: 'Encuentra tu compañero', desc: 'Hay un peludo esperándote, de todas las edades, tamaños y personalidades.' },
       ],
       rescueTag: '¿POR QUÉ RESCATAR?',
       rescueTitle: 'Cada rescate importa',
-      rescueDesc: 'Un animal en la calle no está bien. Sufre de hambre, frío, enfermedades y miedo. Rescatar es un acto de valentía y compasión que puede literalmente salvar una vida. No necesitas ser experto — solo tener el corazón en el lugar correcto.',
+      rescueDesc: 'Un animal en la calle no está bien. Sufre de hambre, frío, enfermedades y miedo. Rescatar es un acto de valentía y compasión que puede literalmente salvar una vida. No necesitas ser experto, solo tener el corazón en el lugar correcto.',
       rescueReasons: [
         { title: 'No pueden pedir ayuda', desc: 'Los animales dependen de nosotros. Un gesto tuyo puede ser su única salvación.' },
         { title: 'Toda vida tiene valor', desc: 'No importa el tamaño, la raza ni la edad. Todo ser merece vivir con dignidad.' },
@@ -195,7 +195,7 @@ const translations = {
     },
     rescueGuide: {
       tag: 'GUÍA DE RESCATE',
-      title: 'Guía Paso a Paso para el Rescate de Perros',
+      title: 'Guía Paso a Paso para el Rescate de Animales',
       phases: [
         {
           name: 'Fase 1: Evaluación y Acercamiento',
@@ -227,8 +227,8 @@ const translations = {
       ],
     },
     reportedAnimals: {
-      tag: 'BASE DE DATOS',
-      title: 'Animales Reportados',
+      tag: 'ALERTA ANIMAL',
+      title: 'Alerta Animal',
       subtitle: 'Registro de animales reportados, su estado de salud, rescatistas asignados y situación actual.',
       totalReported: 'Total reportados',
       rescued: 'Rescatados',
@@ -301,8 +301,8 @@ const translations = {
   },
   en: {
     nav: {
-      about: 'About Us',
-      whatWeDo: 'What We Do',
+      about: 'Behind the Screen',
+      whatWeDo: 'Our Impact',
       adopt: 'Adopt',
       blog: 'Blog',
       faq: 'FAQ',
@@ -321,8 +321,8 @@ const translations = {
       adoptNow: 'See animals',
     },
     about: {
-      tag: 'ABOUT US',
-      title: 'Who We Are',
+      tag: 'BEHIND THE SCREEN',
+      title: 'Behind the Screen',
       statsLabel: 'abandoned animals',
       p1: 'Little Paw Prints is more than a website, it\'s a well thought idea of a project that has been worked on through many months. This is the IB Personal Project of a tenth grade student at Washington Academy.',
       p2: 'It started as an idea of helping those in need, in this case animals on the street, and carried on as a website full of updated, reachable and helpful information. My personal interest in psychology, photography and animals was what led and encouraged me to pursue my specific goals and intents with this process. Through practice and contact with professionals I learned fundamental skills regarding photography, art and psychology, thus having an understanding of how to launch and build from scratch an available internet site.',
@@ -337,8 +337,8 @@ const translations = {
       communityDesc: 'Committed volunteers',
     },
     whatWeDo: {
-      tag: 'WHAT WE DO',
-      title: 'What Little Paw Prints Does',
+      tag: 'OUR IMPACT',
+      title: 'Our Impact',
       subtitle: 'The key areas that make up our platform',
       services: [
         { title: '1. Centralizing Local Resources', desc: 'Finding help shouldn\'t be a challenge during an emergency. We provide an up-to-date directory of local shelters, independent rescuers, and veterinary clinics to ensure that anyone who finds an animal in distress knows exactly who to contact.' },
@@ -455,7 +455,7 @@ const translations = {
     },
     rescueGuide: {
       tag: 'RESCUE GUIDE',
-      title: 'Step-by-Step Guide to Dog Rescue',
+      title: 'Step-by-Step Guide to Animal Rescue',
       phases: [
         {
           name: 'Phase 1: Assessment and Approach',
@@ -506,16 +506,16 @@ const translations = {
     whyAdoptRescue: {
       adoptTag: 'WHY RESCUE ONE?',
       adoptTitle: 'Rescuing changes two lives',
-      adoptDesc: 'When you rescue an animal, you give a second chance to a being that has suffered abandonment. You don\'t just change their life — you transform your own. Rescued animals know this, and they give it back to you with unconditional love.',
+      adoptDesc: 'When you rescue an animal, you give a second chance to a being that has suffered abandonment. You don\'t just change their life, you transform your own. Rescued animals know this, and they give it back to you with unconditional love.',
       adoptReasons: [
         { title: 'You save a life', desc: 'Every rescue frees up space to care for another animal in need.' },
         { title: 'Love you earn', desc: 'Rescued animals create special bonds with those who give them a chance.' },
         { title: 'Fight abandonment', desc: 'Rescuing is the most powerful act against animal abandonment and abuse.' },
-        { title: 'Find your match', desc: 'There is a furry friend waiting for you — all ages, sizes, and personalities.' },
+        { title: 'Find your match', desc: 'There is a furry friend waiting for you, all ages, sizes, and personalities.' },
       ],
       rescueTag: 'WHY RESCUE?',
       rescueTitle: 'Every rescue matters',
-      rescueDesc: 'An animal on the street is not okay. They suffer from hunger, cold, disease, and fear. Rescuing is an act of courage and compassion that can literally save a life. You don\'t need to be an expert — just have your heart in the right place.',
+      rescueDesc: 'An animal on the street is not okay. They suffer from hunger, cold, disease, and fear. Rescuing is an act of courage and compassion that can literally save a life. You don\'t need to be an expert, just have your heart in the right place.',
       rescueReasons: [
         { title: 'They cannot ask for help', desc: 'Animals depend on us. A single gesture from you can be their only salvation.' },
         { title: 'Every life has value', desc: 'Size, breed, and age don\'t matter. Every being deserves to live with dignity.' },
@@ -527,8 +527,8 @@ const translations = {
       rescueCaption: 'Waiting for a hand',
     },
     reportedAnimals: {
-      tag: 'DATABASE',
-      title: 'Reported Animals',
+      tag: 'ANIMAL ALERT',
+      title: 'Animal Alert',
       subtitle: 'Registry of reported animals, their health status, assigned rescuers and current situation.',
       totalReported: 'Total reported',
       rescued: 'Rescued',
